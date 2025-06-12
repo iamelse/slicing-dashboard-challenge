@@ -39,4 +39,4 @@ Project akan berjalan di http://localhost:5173.
 
 ## 📱 Live Preview
 
-
+https://silly-cajeta-5caeeb.netlify.app/
