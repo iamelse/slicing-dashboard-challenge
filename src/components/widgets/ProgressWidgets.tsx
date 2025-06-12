@@ -14,7 +14,7 @@ export function ProgressWidgets() {
                             { value: "Bacon", label: "TARGET CONSUMPTION", dash: "75, 100" },
                         ].map((item, i) => (
                             <div key={i}>
-                                <div className="relative w-24 h-24 mx-auto mb-2">
+                                <div className="relative w-32 h-32 mx-auto mb-2">
                                     <svg
                                         className="w-full h-full transform -rotate-90"
                                         viewBox="0 0 36 36"

@@ -54,7 +54,7 @@ export function ChartWidget({ title, value, color, type }: ChartWidgetProps) {
                 fill: type === "line",
                 tension: 0.4,
                 pointRadius: 0,
-                barThickness: 20,
+                maxBarThickness: 50,
             },
         ],
     }
