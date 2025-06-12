@@ -19,44 +19,52 @@ function App() {
                 <Sidebar />
 
                 <main className="grid grid-cols-12 gap-6 px-4 md:px-12 py-4 lg:py-10 w-full">
-                    <div className="col-span-12" style={{ animationDelay: "100ms" }}>
-                        <ChartWidget title="GRAPH TITLE" value="28.49%" color="text-emerald-600" type="line" />
+
+                    {/* === LEFT COLUMN (2/3) === */}
+                    <div className="col-span-12 lg:col-span-8 space-y-6">
+                        <div className="grid grid-cols-12 gap-6">
+                            <div className="col-span-12 lg:col-span-6" style={{ animationDelay: "100ms" }}>
+                                <ChartWidget title="GRAPH TITLE" value="28.49%" color="text-emerald-600" type="line" />
+                            </div>
+                            <div className="col-span-12 lg:col-span-6" style={{ animationDelay: "200ms" }}>
+                                <ChartWidget title="GRAPH TITLE" value="36.25%" color="text-emerald-600" type="bar" />
+                            </div>
+                        </div>
+
+                        <div style={{ animationDelay: "400ms" }}>
+                            <NotificationBanner />
+                        </div>
+
+                        <div style={{ animationDelay: "500ms" }}>
+                            <CalendarWidget />
+                        </div>
+
+                        <div style={{ animationDelay: "600ms" }}>
+                            <FileTable />
+                        </div>
+
+                        <div style={{ animationDelay: "700ms" }}>
+                            <ProgressWidgets />
+                        </div>
                     </div>
 
-                    <div className="col-span-12" style={{ animationDelay: "200ms" }}>
-                        <ChartWidget title="GRAPH TITLE" value="36.25%" color="text-emerald-600" type="bar" />
-                    </div>
+                    {/* === RIGHT COLUMN (1/3) === */}
+                    <div className="col-span-12 lg:col-span-4 space-y-6">
+                        <div style={{ animationDelay: "300ms" }}>
+                            <PieChartWidget />
+                        </div>
 
-                    <div className="col-span-12" style={{ animationDelay: "300ms" }}>
-                        <PieChartWidget />
-                    </div>
+                        <div style={{ animationDelay: "800ms" }}>
+                            <TaskForm />
+                        </div>
 
-                    <div className="col-span-12" style={{ animationDelay: "400ms" }}>
-                        <NotificationBanner />
-                    </div>
+                        <div style={{ animationDelay: "900ms" }}>
+                            <ActivityFeed />
+                        </div>
 
-                    <div className="col-span-12" style={{ animationDelay: "500ms" }}>
-                        <CalendarWidget />
-                    </div>
-
-                    <div className="col-span-12" style={{ animationDelay: "600ms" }}>
-                        <FileTable />
-                    </div>
-
-                    <div className="col-span-12" style={{ animationDelay: "700ms" }}>
-                        <ProgressWidgets />
-                    </div>
-
-                    <div className="col-span-12" style={{ animationDelay: "800ms" }}>
-                        <TaskForm />
-                    </div>
-
-                    <div className="col-span-12" style={{ animationDelay: "900ms" }}>
-                        <ActivityFeed />
-                    </div>
-
-                    <div className="col-span-12" style={{ animationDelay: "1000ms" }}>
-                        <EngagementRateWidget />
+                        <div style={{ animationDelay: "1000ms" }}>
+                            <EngagementRateWidget />
+                        </div>
                     </div>
                 </main>
 
