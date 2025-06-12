@@ -7,14 +7,14 @@ export function ProgressWidgets() {
             {/* Progress Circles with Equal Spacing */}
             <Card className="card-hover animate-in">
                 <CardContent className="p-6">
-                    <div className="grid grid-cols-3 gap-6 text-center">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
                         {[
                             { value: "12/29", label: "TASK COMPLETE", dash: "60, 100" },
                             { value: "60%", label: "FUNDS MET", dash: "60, 100" },
                             { value: "Bacon", label: "TARGET CONSUMPTION", dash: "75, 100" },
                         ].map((item, i) => (
                             <div key={i}>
-                                <div className="relative w-24 h-24 mx-auto mb-2">
+                                <div className="relative w-32 h-32 mx-auto mb-2">
                                     <svg
                                         className="w-full h-full transform -rotate-90"
                                         viewBox="0 0 36 36"
@@ -45,7 +45,7 @@ export function ProgressWidgets() {
             </Card>
 
             {/* Archives and Yays Progress */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="card-hover">
                     <CardContent className="p-6 text-center">
                         <div className="w-24 h-24 mx-auto mb-4 bg-gray-900 rounded-lg flex items-center justify-center">
@@ -60,7 +60,7 @@ export function ProgressWidgets() {
 
                 <Card className="card-hover">
                     <CardContent className="p-6 flex flex-col items-center justify-center text-center">
-                        <div className="relative w-48 h-28"> {/* Ukuran proporsional */}
+                        <div className="relative w-48 aspect-square"> {/* Ukuran proporsional */}
                             <svg
                                 className="w-full h-full"
                                 viewBox="0 0 100 50"
