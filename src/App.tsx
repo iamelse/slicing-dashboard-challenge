@@ -1,34 +1,73 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Header } from "./components/layout/Header"
+import { Sidebar } from "./components/layout/Sidebar"
+import { ChartWidget } from "./components/widgets/ChartWidget"
+import { PieChartWidget } from "./components/widgets/PieChartWidget"
+import { CalendarWidget } from "./components/widgets/CalendarWidget"
+import { FileTable } from "./components/widgets/FileTable"
+import { TaskForm } from "./components/widgets/TaskForm"
+import { ActivityFeed } from "./components/widgets/ActivityFeed"
+import { ProgressWidgets } from "./components/widgets/ProgressWidgets"
+import { NotificationBanner } from "./components/NotificationBanner"
+import { EngagementRateWidget } from "./components/widgets/EngagementRateWidget"
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-50">
+            <Header />
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+            <div className="flex flex-1 justify-center">
+                <Sidebar />
+
+                <main className="flex gap-8 px-12 py-10 w-full">
+                {/* First Column */}
+                    <div className="w-2/3 grid grid-cols-12 gap-6">
+                        {/* Top row - Charts */}
+                        <div className="col-span-6" style={{ animationDelay: "100ms" }}>
+                            <ChartWidget title="GRAPH TITLE" value="28.49%" color="text-emerald-600" type="line" />
+                        </div>
+                        <div className="col-span-6" style={{ animationDelay: "200ms" }}>
+                            <ChartWidget title="GRAPH TITLE" value="36.25%" color="text-emerald-600" type="bar" />
+                        </div>
+
+                        {/* Notification banner */}
+                        <div className="col-span-12" style={{ animationDelay: "400ms" }}>
+                            <NotificationBanner />
+                        </div>
+
+                        {/* Calendar and File table */}
+                        <div className="col-span-12" style={{ animationDelay: "500ms" }}>
+                            <CalendarWidget />
+                        </div>
+                        <div className="col-span-12" style={{ animationDelay: "600ms" }}>
+                            <FileTable />
+                        </div>
+
+                        {/* Progress and Task form */}
+                        <div className="col-span-12" style={{ animationDelay: "700ms" }}>
+                            <ProgressWidgets />
+                        </div>
+                    </div>
+
+                    {/* Second Column */}
+                    <div className="w-1/3 grid-cols-12 gap-6">
+                        <div className="col-span-12 pb-7" style={{ animationDelay: "300ms" }}>
+                            <PieChartWidget />
+                        </div>
+                        <div className="col-span-4 pb-7" style={{ animationDelay: "500ms" }}>
+                            <TaskForm />
+                        </div>
+                        <div className="pb-7" style={{ animationDelay: "900ms" }}>
+                            <ActivityFeed />
+                        </div>
+                        <div className="col-span-8" style={{ animationDelay: "600ms" }}>
+                            <EngagementRateWidget />
+                        </div>
+                    </div>
+                </main>
+
+            </div>
+        </div>
+    )
 }
 
 export default App
