@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "../ui/Card"
 import { Button } from "../ui/Button"
 import { MoreHorizontal } from "lucide-react"
+import type { ChartOptions, TooltipItem } from "chart.js"
 
 import {
     Chart as ChartJS,
@@ -66,7 +67,8 @@ export function ChartWidget({ title, value, color, type }: ChartWidgetProps) {
             legend: { display: false },
             tooltip: {
                 callbacks: {
-                    label: (context: any) => `${context.raw.toLocaleString()}`,
+                    label: (context: TooltipItem<"line"> | TooltipItem<"bar">) =>
+                        `${(context.raw as number).toLocaleString()}`,
                 },
                 backgroundColor: "#111",
                 titleColor: "#fff",
@@ -80,7 +82,7 @@ export function ChartWidget({ title, value, color, type }: ChartWidgetProps) {
                     color: "#333",
                     font: {
                         size: 12,
-                        weight: "500",
+                        weight: 500, // gunakan angka, bukan string
                     },
                 },
             },
@@ -97,7 +99,7 @@ export function ChartWidget({ title, value, color, type }: ChartWidgetProps) {
                     callback: (value: number) => `${value / 1000}K`,
                     font: {
                         size: 12,
-                        weight: "500",
+                        weight: 500,
                     },
                 },
             },
@@ -120,9 +122,9 @@ export function ChartWidget({ title, value, color, type }: ChartWidgetProps) {
 
             <CardContent className="h-44 mt-2">
                 {type === "line" ? (
-                    <Line data={data} options={options} />
+                    <Line data={data} options={options as ChartOptions<"line">} />
                 ) : (
-                    <Bar data={data} options={options} />
+                    <Bar data={data} options={options as ChartOptions<"bar">} />
                 )}
             </CardContent>
         </Card>
